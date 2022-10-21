@@ -87,7 +87,7 @@ if ((parseInt(stateCode)+inc)> 123 && (parseInt(stateCode)+inc)< 129){
 stateCode=parseInt(stateCode)+inc;
 stateCode=stateCode.toString()
 var mainDisp=document.getElementById("mainDisplay");
-mainDisp.innerText=stateCode.slice(1);
+mainDisp.innerText=stateCode.slice(1) + "°C";
 var q=delayMinutes+1000;
 q=q.toString();
 sendRequest("S" +stateCode.slice(1)+q.slice(1)+stateCode);
