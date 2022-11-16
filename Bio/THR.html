@@ -18,26 +18,50 @@
 	
 <script>
 
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "https://c1hcy535.caspio.com/dp/441db0007a49fd6cf3304e06be3c?cbqe=QXBwS2V5PTQ0MWRiMDAwN2E0OWZkNmNmMzMwNGUwNmJlM2MmanM9dHJ1ZSZjYkVtYkRlcGxveVdpdGg9bmV3X2FzeW5jX2VtYmVkanMmY2JEYXRhcGFnZUFuY2hvcklkPWRwX2FuY2hvcl9pZF81ODcxMDAwMCZwYXRobmFtZT1maWxlOi8vL0M6L1VzZXJzL21yay9EZXNrdG9wL0dpdEh1Yi9FU1AlMjBXZWJzaXRlL1Rlc3RpbmcvaW5kZXguaHRtbCZjYlNjcmVlbldpZHRoPTE5MjAmY2JFbWJRdWVyeVN0cj0mY2JQYXJhbUxpc3Q9&cbEmbedTimeStamp=1668632863075", false );
+	xmlHttp.send( null );
+	var indx=0;
+	var incrim=0;
+	var stringHold="";
+	const rws=[];
+	const clms =[];
+	for (let i = 0; i < 40; i++) {
+
+	indx = xmlHttp.responseText.indexOf("cbResultSetData cbResultSetNestedAlign",indx+1);
+
+
+	if(i & 1)
+	{
+  	rws.push(xmlHttp.responseText.slice(indx+47,indx+49));
+	}
+	else
+	{
+    	clms.push(xmlHttp.responseText.slice(indx+46,indx+49));
+	}
+
+	}
+	
 	
 var canvas = document.getElementById('myChart');
 new Chart(canvas, {  type: 'line',
 	
   data: {
-    labels: ['a', 'b', 'c', 'd', 'e'],
+    labels: clms.reverse(),
 	  
     datasets: [{
       label: 'A',
       borderColor: "blue",
       fill: false,
       yAxisID: 'A',
-      data: [30, 24, 25, 24, 22]
+      data: rws.reverse()
     }, {
 	
       label: 'B',
       yAxisID: 'B',
       borderColor: "red",
       fill: false,
-      data: [30, 40, 80, 50, 60]
+      data: [0, 0, 0, 0, 0]
     }]
   },
   options: {
