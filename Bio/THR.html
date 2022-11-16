@@ -24,8 +24,9 @@
 	var indx=0;
 	var incrim=0;
 	var stringHold="";
-	const rws=[];
-	const clms =[];
+	const tmp=[];
+	const pntID =[];
+	const humi=[];
 	for (let i = 0; i < 40; i++) {
 
 	indx = xmlHttp.responseText.indexOf("cbResultSetData cbResultSetNestedAlign",indx+1);
@@ -33,11 +34,12 @@
 
 	if(i & 1)
 	{
-  	rws.push(xmlHttp.responseText.slice(indx+47,indx+49));
+  	tmp.push(xmlHttp.responseText.slice(indx+47,indx+49));
+	humi.push(xmlHttp.responseText.slice(indx+49,indx+51));
 	}
 	else
 	{
-    	clms.push(xmlHttp.responseText.slice(indx+46,indx+49));
+    	pntID.push(xmlHttp.responseText.slice(indx+46,indx+49));
 	}
 
 	}
@@ -47,21 +49,21 @@ var canvas = document.getElementById('myChart');
 new Chart(canvas, {  type: 'line',
 	
   data: {
-    labels: clms.reverse(),
+    labels: pntID.reverse(),
 	  
     datasets: [{
       label: 'A',
       borderColor: "blue",
       fill: false,
       yAxisID: 'A',
-      data: rws.reverse()
+      data: tmp.reverse()
     }, {
 	
       label: 'B',
       yAxisID: 'B',
       borderColor: "red",
       fill: false,
-      data: [0, 0, 0, 0, 0]
+      data: humi.reverse()
     }]
   },
   options: {
