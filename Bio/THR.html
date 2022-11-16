@@ -11,27 +11,20 @@
     </head>
     <body>
         <section style="text-align: center; padding-top: 100px;">
-
-	<canvas id="myChart" style=" padding-left:20px; padding-right: 20px; width:100%;max-width:1000px"></canvas>
-
-
-
-
-
-
+		<canvas id="myChart" style=" padding-left:20px; padding-right: 20px; width:100%;max-width:1000px"></canvas>
         </section>
+    </body>
 
-
-
+	
 <script>
 
-
-var xValues = [100,200,300,400,500,600,700,800,900,1000];
+	
 var canvas = document.getElementById('myChart');
-new Chart(canvas, {
-  type: 'line',
+new Chart(canvas, {  type: 'line',
+	
   data: {
     labels: ['a', 'b', 'c', 'd', 'e'],
+	  
     datasets: [{
       label: 'A',
       borderColor: "blue",
@@ -39,6 +32,7 @@ new Chart(canvas, {
       yAxisID: 'A',
       data: [30, 24, 25, 24, 22]
     }, {
+	
       label: 'B',
       yAxisID: 'B',
       borderColor: "red",
@@ -47,63 +41,52 @@ new Chart(canvas, {
     }]
   },
   options: {
- 		responsive: false,
-         title: {
-      display: true,
-      text: 'Chart.js Line Chart'
-    },
-      
-    scales: {
-    
-    xAxes: [ {
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: 'Time'
-          }
-                    
-        } ],
-    
-      yAxes: [{
-    	scaleLabel: {
-          display: true,
-          labelString: 'Temp (C)'
-        },
-        id: 'A',
-        type: 'linear',
-        position: 'left',
-         ticks: {
-          max: 40,
-          min: 10,
-          stepSize: 5
+  	title: {
+      		display: true,
+     		text: 'Chart.js Line Chart'
+   	 },
+
+    	scales: {
+    		xAxes: [ {
+          		display: true,
+          		scaleLabel: {
+            			display: true,
+            			labelString: 'Time'
+          		}} ],
+    		yAxes: [{
+    			scaleLabel: {
+          			display: true,
+          			labelString: 'Temp (C)'
+        		},
+       	 		id: 'A',
+       	 		type: 'linear',
+			position: 'left',
+			ticks: {
+			max: 40,
+			min: 10,
+			stepSize: 5
+		        }}, 
+			
+			{ scaleLabel: {
+          			display: true,
+          			labelString: 'Humidity (%)'
+        		  },
+        		id: 'B',
+        		type: 'linear',
+        		position: 'right',
+        		ticks: {
+          			stepSize: 15,
+          			max: 90,
+          			min: 0
           
-        }
-      }, {
-      	scaleLabel: {
-          display: true,
-          labelString: 'Humidity (%)'
-        },
-        id: 'B',
-        type: 'linear',
-        position: 'right',
-        
-        ticks: {
-          stepSize: 15,
-          max: 90,
-          min: 0
-          
-        },
-        
-      }]
-      
-      
-       
-    }
+        		},
+      		}]
+    	}
   }
 });
 
 
 </script>
 
-    </body>
+    
 </html>
