@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <head>
+	<title>BioDevLayer</title>
+	<link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    </head>
+    <body>
+        <section style="text-align: center; padding-top: 100px;">
+
+	<canvas id="myChart" style=" margin-left:auto; margin-right: auto; width:100%;max-width:600px"></canvas>
+
+
+
+
+
+
+        </section>
+
+
+
+<script>
+
+
+var xValues = [100,200,300,400,500,600,700,800,900,1000];
+var canvas = document.getElementById('myChart');
+new Chart(canvas, {
+  type: 'line',
+  data: {
+    labels: ['a', 'b', 'c', 'd', 'e'],
+    datasets: [{
+      label: 'A',
+      borderColor: "blue",
+      fill: false,
+      yAxisID: 'A',
+      data: [30, 24, 25, 24, 22]
+    }, {
+      label: 'B',
+      yAxisID: 'B',
+      borderColor: "red",
+      fill: false,
+      data: [30, 40, 80, 50, 60]
+    }]
+  },
+  options: {
+ 		responsive: false,
+         title: {
+      display: true,
+      text: 'Chart.js Line Chart'
+    },
+      
+    scales: {
+    
+    xAxes: [ {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Time'
+          }
+                    
+        } ],
+    
+      yAxes: [{
+    	scaleLabel: {
+          display: true,
+          labelString: 'Temp (C)'
+        },
+        id: 'A',
+        type: 'linear',
+        position: 'left',
+         ticks: {
+          max: 40,
+          min: 10,
+          stepSize: 5
+          
+        }
+      }, {
+      	scaleLabel: {
+          display: true,
+          labelString: 'Humidity (%)'
+        },
+        id: 'B',
+        type: 'linear',
+        position: 'right',
+        
+        ticks: {
+          stepSize: 15,
+          max: 90,
+          min: 0
+          
+        },
+        
+      }]
+      
+      
+       
+    }
+  }
+});
+
+
+</script>
+
+    </body>
+</html>
