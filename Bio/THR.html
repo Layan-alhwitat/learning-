@@ -35,7 +35,7 @@
 
 	if(i & 1)
 	{
-  	tmp.push(xmlHttp.responseText.slice(indx+47,indx+49));
+  	tmp.push(Number(xmlHttp.responseText.slice(indx+47,indx+49))+1);
 	humi.push(xmlHttp.responseText.slice(indx+49,indx+51));
 	}
 	else
