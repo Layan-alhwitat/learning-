@@ -27,7 +27,8 @@
 	const tmp=[];
 	const pntID =[];
 	const humi=[];
-	for (let i = 0; i < 40; i++) {
+	
+	for (let i = 0; i < 120; i++) {
 
 	indx = xmlHttp.responseText.indexOf("cbResultSetData cbResultSetNestedAlign",indx+1);
 
@@ -39,7 +40,8 @@
 	}
 	else
 	{
-    	pntID.push(xmlHttp.responseText.slice(indx+46,indx+49));
+	//pntID.push(xmlHttp.responseText.slice(indx+46,indx+49));
+    	pntID.push("");
 	}
 
 	}
@@ -77,7 +79,7 @@ new Chart(canvas, {  type: 'line',
           		display: true,
           		scaleLabel: {
             			display: true,
-            			labelString: 'Time'
+            			labelString: 'Time (Past 5 hours)'
           		}} ],
     		yAxes: [{
     			scaleLabel: {
