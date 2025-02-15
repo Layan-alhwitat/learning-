@@ -107,7 +107,7 @@ button {
 }
 
 fieldset {
-    padding: .35em .75em .625em;
+    padding: .36em .75em .625em;
 }
 
 legend {
@@ -178,5 +178,5 @@ html,
 body {
     min-height: 100vh;
     background-color: #0a0c10;
-    margin-top: 20px;
+    margin-top: 21px;
 }
